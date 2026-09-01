@@ -14,6 +14,7 @@ FROM node:alpine
 WORKDIR /usr/src/app
 
 ENV NODE_ENV production
+ENV PORT 5000
 
 COPY --from=build /usr/src/app/next.config.js ./
 COPY --from=build /usr/src/app/public public/
@@ -21,5 +22,5 @@ COPY --from=build /usr/src/app/.next .next/
 COPY --from=build /usr/src/app/node_modules node_modules/
 COPY --from=build /usr/src/app/package.json ./
 
-EXPOSE 3000
+EXPOSE 5000
 CMD ["npm", "run", "start"]
